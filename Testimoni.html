@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=dece-width, initial-scale=1.0">
+    <title>Profil Usaha Buku</title>
+        <link rel="stylesheet" href="style.css" />
+        <nav class="navbar">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="produk.html">Produk</a></li>
+    <li><a href="bedah buku.html">Bedah Buku Artikel</a></li>
+    <li><a href="Testimoni.html">Testimoni</a></li>
+    <li><a href="tampil testimoni.html">Tampil Testimoni</a></li>
+    <li><a href="video produk.html">video produk</a></li>
+    <li><a href="kontak.html">kontak</a></li>
+  </ul>
+</nav>
+</head>
+<body>
+  <main class="formulir">
+    <h2>Berikan Testimoni Anda</h2>
+    <form id="formTestimoni">
+      <label for="nama">Nama:</label>
+      <input type="text" id="nama" name="nama" required placeholder="Nama lengkap">
+
+      <label for="email">email:</label>
+      <input type="email" id="email" name="email" required placeholder="email">
+
+      <label for="nomor">nomor:</label>
+      <input type="nomor" id="nomor" name="nomor" required placeholder="Nomor">
+      
+      <label for="Buku favorit">Buku Favorit:</label>
+      <input type="Buku Favorit" id="Buku Favorit" name="Buku Favorit" required placeholder="Buku Favorit Anda">
+
+      <label for="pesan">pesan:</label>
+      <textarea id="pesan" name="pesan" required placeholder="Tulis pengalaman Anda..." rows="5"></textarea>
+
+      <button type="submit">konfirmasi</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Toko Buku Farzana</p>
+  </footer>
+
+  <script>
+    document.getElementById('formTestimoni').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nama = document.getElementById('nama').value;
+      const email = document.getElementById('email').value;
+      const nomor = document.getElementById('nomor').value;
+      const pesan = document.getElementById('pesan').value;
+
+      const dataBaru = { nama, email, pesan, nomor };
+
+      // Ambil list dari localStorage
+      const testimoniList = JSON.parse(localStorage.getItem('testimoniList')) || [];
+
+      // Tambahkan testimoni baru
+      testimoniList.push(dataBaru);
+
+      // Simpan kembali ke localStorage
+      localStorage.setItem('testimoniList', JSON.stringify(testimoniList));
+
+      // Arahkan ke halaman konfirmasi
+      window.location.href = 'proses Testimoni.html';
+    });
+  </script>
+
+</body>
+</html>
+
+</body>
